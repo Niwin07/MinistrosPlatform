@@ -1,0 +1,257 @@
+/* ============================================================
+   GLOBAL.CSS — Glassmorphism Design System
+   Repertorio Musical SPA
+   ============================================================ */
+
+/* ─── 1. RESET & BASE ─────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ─── 2. PALETA DE COLORES ────────────────────────────────── */
+:root {
+  /* — Fondos (dark, vibrantes) — */
+  --color-bg-base: #0a0a14; /* negro profundo con tinte índigo */
+  --color-bg-layer-1: #0f0f1e; /* fondo de página principal */
+  --color-bg-layer-2: #13132a; /* fondo de sección/panel */
+  --color-bg-layer-3: #1a1a38; /* fondo de cards secundarias */
+
+  /* — Acento / Vibrance — */
+  --color-accent-primary: #6c63ff; /* violeta eléctrico (iOS purple) */
+  --color-accent-secondary: #ff6584; /* rosa neon */
+  --color-accent-tertiary: #43e8d8; /* teal/aqua */
+  --color-accent-warm: #ffb347; /* ámbar suave */
+
+  /* — Tipografía — */
+  --color-text-primary: rgba(255, 255, 255, 0.95);
+  --color-text-secondary: rgba(255, 255, 255, 0.65);
+  --color-text-tertiary: rgba(255, 255, 255, 0.38);
+  --color-text-disabled: rgba(255, 255, 255, 0.22);
+  --color-text-accent: var(--color-accent-primary);
+
+  /* — Bordes translúcidos — */
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --color-border-accent: rgba(108, 99, 255, 0.45);
+
+  /* — Superficies Glass (rgba de baja opacidad) — */
+  --glass-bg-0: rgba(255, 255, 255, 0.03); /* casi invisible */
+  --glass-bg-1: rgba(255, 255, 255, 0.06); /* capa base */
+  --glass-bg-2: rgba(255, 255, 255, 0.09); /* capa media */
+  --glass-bg-3: rgba(255, 255, 255, 0.13); /* capa alta / hover */
+  --glass-bg-4: rgba(255, 255, 255, 0.18); /* capa tope / activo */
+
+  /* — Colores de estado — */
+  --color-success: #30d158; /* iOS green */
+  --color-warning: #ffd60a; /* iOS yellow */
+  --color-danger: #ff453a; /* iOS red */
+  --color-info: #0a84ff; /* iOS blue */
+
+  /* ─── 3. BORDER RADIUS (iOS HIG) ───────────────────────── */
+  --radius-xs: 6px;
+  --radius-sm: 10px; /* botones, inputs pequeños */
+  --radius-md: 14px; /* chips, badges */
+  --radius-lg: 18px; /* cards compactas */
+  --radius-xl: 24px; /* cards principales */
+  --radius-2xl: 32px; /* modales, drawers */
+  --radius-full: 9999px;
+
+  /* ─── 4. BLUR VALUES ────────────────────────────────────── */
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 28px;
+  --blur-xl: 48px;
+
+  /* ─── 5. SHADOWS ────────────────────────────────────────── */
+  --shadow-glass-sm:
+    0 2px 8px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+
+  --shadow-glass-md:
+    0 4px 24px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+
+  --shadow-glass-lg:
+    0 8px 40px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.2) inset;
+
+  --shadow-glass-accent:
+    0 8px 32px rgba(108, 99, 255, 0.3), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
+
+  --shadow-elevated:
+    0 20px 60px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+
+  /* ─── 6. TIPOGRAFÍA ─────────────────────────────────────── */
+  --font-family-base:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue",
+    system-ui, sans-serif;
+
+  --font-family-display:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue",
+    system-ui, sans-serif;
+
+  --font-size-xs: 11px;
+  --font-size-sm: 13px;
+  --font-size-md: 15px;
+  --font-size-lg: 17px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 34px;
+
+  /* ─── 7. SPACING ────────────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ─── 8. TRANSITIONS ────────────────────────────────────── */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ─── 9. CLASES DE UTILIDAD GLASS ───────────────────────────
+   SISTEMA DE CAPAS DE PROFUNDIDAD:
+
+   Profundidad 0 → glass-0   (backgrounds, contenedores fantasma)
+   Profundidad 1 → glass-1   (cards secundarias, sidebars)
+   Profundidad 2 → glass-2   (cards principales — default)
+   Profundidad 3 → glass-3   (cards activas, hover states)
+   Profundidad 4 → glass-4   (modales, popovers, toasts)
+   ──────────────────────────────────────────────────────────── */
+
+/* — Capa 0: Superficie fantasma — */
+.glass-0 {
+  background: var(--glass-bg-0);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+/* — Capa 1: Superficie base — */
+.glass-1 {
+  background: var(--glass-bg-1);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass-sm);
+}
+
+/* — Capa 2: Card estándar (la más usada) — */
+.glass-2 {
+  background: var(--glass-bg-2);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass-md);
+}
+
+/* — Capa 3: Card elevada / hover — */
+.glass-3 {
+  background: var(--glass-bg-3);
+  backdrop-filter: blur(var(--blur-lg));
+  -webkit-backdrop-filter: blur(var(--blur-lg));
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass-lg);
+}
+
+/* — Capa 4: Modal / overlay / tope de z-stack — */
+.glass-4 {
+  background: var(--glass-bg-4);
+  backdrop-filter: blur(var(--blur-xl));
+  -webkit-backdrop-filter: blur(var(--blur-xl));
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* — Variante acentuada (card seleccionada / activa) — */
+.glass-accent {
+  background: rgba(108, 99, 255, 0.1);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass-accent);
+}
+
+/* — Variante frosted (máximo blur, mínima opacidad — Navbar) — */
+.glass-frosted {
+  background: rgba(10, 10, 20, 0.55);
+  backdrop-filter: blur(var(--blur-xl));
+  -webkit-backdrop-filter: blur(var(--blur-xl));
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+/* ─── 10. OPTIMIZACIÓN DE RENDIMIENTO ───────────────────────
+   Aplicar SOLO a contenedores glass que tengan hijos animados
+   o muchos elementos internos. NO aplicar globalmente.      */
+.glass-will-change {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Para elementos que se animan con opacity/transform */
+.gpu-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ─── 11. BASE STYLES ───────────────────────────────────────── */
+body {
+  background-color: var(--color-bg-layer-1);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* Fondo de ambient light (blobs decorativos detrás del glass) */
+#root {
+  position: relative;
+  isolation: isolate; /* crea nuevo stacking context */
+}
+
+/* ─── 12. SCROLLBAR STYLING (WebKit) ───────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── 13. FOCUS VISIBLE (Accesibilidad) ─────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}

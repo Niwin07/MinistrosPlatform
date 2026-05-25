@@ -1,0 +1,82 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-1);
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-default);
+  background: var(--glass-bg-1);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  font-family: var(--font-family-base);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-spring);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.key:hover {
+  background: var(--glass-bg-3);
+  border-color: var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+
+.key:active {
+  transform: scale(0.94);
+}
+
+.white {
+  background: var(--glass-bg-1);
+}
+
+.black {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.selected {
+  background: rgba(108, 99, 255, 0.18) !important;
+  border-color: var(--color-border-accent) !important;
+  color: #b0aaff !important;
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.25);
+}
+
+.minorToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-default);
+  background: var(--glass-bg-1);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.minorToggle:hover {
+  background: var(--glass-bg-3);
+  border-color: var(--color-border-strong);
+}
+
+.minorActive {
+  background: rgba(255, 101, 132, 0.15) !important;
+  border-color: rgba(255, 101, 132, 0.35) !important;
+  color: #ff8a9e !important;
+}

@@ -1,0 +1,312 @@
+.root {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ─── Live Banner ──────────────────────────────────── */
+
+.liveBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background: rgba(48, 209, 88, 0.08);
+  border: 1px solid rgba(48, 209, 88, 0.25);
+  border-radius: var(--radius-full);
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-success);
+  box-shadow: 0 0 8px rgba(48, 209, 88, 0.6);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+.liveText {
+  font-weight: 600;
+  color: var(--color-success);
+  letter-spacing: 0.3px;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+/* ─── Header ────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-6);
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.dateLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.eventTitle {
+  font-family: var(--font-family-display);
+  line-height: 1.2;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+/* ─── Status Badge ──────────────────────────────────── */
+
+.statusBadge {
+  display: inline-flex;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.statusDraft {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border-default);
+}
+
+.statusRehearsal {
+  background: rgba(255, 179, 71, 0.15);
+  color: var(--color-accent-warm);
+  border: 1px solid rgba(255, 179, 71, 0.3);
+}
+
+.statusFinal {
+  background: rgba(48, 209, 88, 0.12);
+  color: var(--color-success);
+  border: 1px solid rgba(48, 209, 88, 0.25);
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.stat {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+.statDot {
+  color: var(--color-text-disabled);
+}
+
+/* ─── Song List ──────────────────────────────────────── */
+
+.songList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.songWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.songCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.songCard:hover {
+  background: var(--glass-bg-3);
+  border-color: var(--color-border-strong);
+}
+
+.songCardEditing {
+  border-color: var(--color-border-accent);
+  background: rgba(108, 99, 255, 0.06);
+}
+
+.orderBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--glass-bg-3);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.songInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.songTitle {
+  line-height: 1.3;
+}
+
+.songArtist {
+  line-height: 1.3;
+}
+
+.songMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* ─── Key Badge ─────────────────────────────────────── */
+
+.keyBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  background: rgba(108, 99, 255, 0.12);
+  border: 1px solid rgba(108, 99, 255, 0.25);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  font-family: var(--font-family-base);
+  letter-spacing: 0.3px;
+  transition: background var(--transition-fast);
+}
+
+.keyBadgeClickable {
+  cursor: pointer;
+}
+
+.keyBadgeClickable:hover {
+  background: rgba(108, 99, 255, 0.22);
+}
+
+.keyEditIcon {
+  font-size: 11px;
+  opacity: 0.6;
+  margin-left: 2px;
+}
+
+.chip {
+  padding: var(--space-1) var(--space-2);
+  background: var(--glass-bg-2);
+  border-radius: var(--radius-xs);
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+/* ─── Inline Key Editor ─────────────────────────────── */
+
+.keyEditor {
+  padding: var(--space-4);
+  margin-left: 0;
+}
+
+.keyEditorHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.keyEditorClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: var(--glass-bg-2);
+  border-radius: var(--radius-full);
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  font-size: 12px;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.keyEditorClose:hover {
+  background: var(--glass-bg-3);
+  color: var(--color-text-primary);
+}
+
+/* ─── Empty State ───────────────────────────────────── */
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16) var(--space-6);
+  text-align: center;
+}
+
+/* ─── Responsive ────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .root {
+    padding: var(--space-4);
+  }
+
+  .header {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .headerRight {
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .songCard {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .songMeta {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

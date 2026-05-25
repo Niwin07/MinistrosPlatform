@@ -1,0 +1,95 @@
+.bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: var(--space-3) var(--space-6);
+  padding-bottom: max(var(--space-3), env(safe-area-inset-bottom));
+  background: linear-gradient(to top, var(--color-bg-layer-1) 60%, transparent);
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  gap: var(--space-3);
+  pointer-events: auto;
+}
+
+.primary {
+  flex: 1;
+  padding: var(--space-3) var(--space-5) !important;
+  border-radius: var(--radius-full) !important;
+  border: 1px solid var(--color-border-accent) !important;
+  background: rgba(108, 99, 255, 0.18) !important;
+  color: #b0aaff !important;
+  font-weight: 700 !important;
+  font-size: var(--font-size-sm) !important;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-spring);
+}
+
+.primary:hover {
+  background: rgba(108, 99, 255, 0.3) !important;
+  transform: scale(1.02);
+}
+
+.secondary {
+  flex: 1;
+  padding: var(--space-3) var(--space-5) !important;
+  border-radius: var(--radius-full) !important;
+  border: 1px solid var(--color-border-default) !important;
+  background: var(--glass-bg-1) !important;
+  color: var(--color-text-secondary) !important;
+  font-weight: 600 !important;
+  font-size: var(--font-size-sm) !important;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-spring);
+}
+
+.secondary:hover {
+  background: var(--glass-bg-3) !important;
+  transform: scale(1.02);
+}
+
+.rehearsalBtn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5) !important;
+  border-radius: var(--radius-full) !important;
+  border: 1px solid rgba(255, 190, 50, 0.4) !important;
+  background: rgba(255, 190, 50, 0.15) !important;
+  color: #ffd966 !important;
+  font-weight: 700 !important;
+  font-size: var(--font-size-sm) !important;
+  cursor: pointer;
+  animation: glow 2s ease-in-out infinite;
+  transition: transform var(--transition-spring);
+}
+
+.rehearsalBtn:hover {
+  transform: scale(1.02);
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffd966;
+  animation: pulseDot 1.2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 12px rgba(255, 190, 50, 0.15); }
+  50% { box-shadow: 0 0 24px rgba(255, 190, 50, 0.3); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}

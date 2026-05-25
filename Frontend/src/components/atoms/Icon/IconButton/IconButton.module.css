@@ -1,0 +1,117 @@
+.iconButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-default);
+  background: var(--glass-bg-1);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-spring),
+    box-shadow var(--transition-base);
+  -webkit-tap-highlight-color: transparent;
+  /* No backdrop-filter en el átomo — se aplica desde el padre
+     o mediante la clase utilitaria .glass-will-change si anida */
+}
+
+/* — Tamaños — */
+.sm {
+  width: 32px;
+  height: 32px;
+}
+.md {
+  width: 40px;
+  height: 40px;
+}
+.lg {
+  width: 48px;
+  height: 48px;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: inherit;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sm .iconWrap {
+  font-size: 16px;
+}
+.md .iconWrap {
+  font-size: 20px;
+}
+.lg .iconWrap {
+  font-size: 24px;
+}
+
+/* — Variantes — */
+.default:hover:not(:disabled) {
+  background: var(--glass-bg-3);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-glass-sm);
+  transform: scale(1.08);
+}
+
+.accent {
+  background: rgba(108, 99, 255, 0.12);
+  border-color: var(--color-border-accent);
+  color: #a09aff;
+}
+.accent:hover:not(:disabled) {
+  background: rgba(108, 99, 255, 0.22);
+  box-shadow: var(--shadow-glass-accent);
+  transform: scale(1.08);
+}
+
+.danger {
+  background: rgba(255, 69, 58, 0.1);
+  border-color: rgba(255, 69, 58, 0.35);
+  color: #ff6b6b;
+}
+.danger:hover:not(:disabled) {
+  background: rgba(255, 69, 58, 0.2);
+  box-shadow: 0 4px 20px rgba(255, 69, 58, 0.3);
+  transform: scale(1.08);
+}
+
+/* — Active / Press — */
+.iconButton:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+/* — Disabled — */
+.iconButton:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* — Ripple decorativo (CSS puro) — */
+.ripple {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 300ms ease,
+    transform 300ms ease;
+  pointer-events: none;
+}
+.iconButton:active .ripple {
+  opacity: 1;
+  transform: scale(1.4);
+}
