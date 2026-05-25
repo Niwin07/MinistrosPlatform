@@ -4,16 +4,8 @@ import Badge from '../../atoms/Badge'
 import GlassDrawer from '../../organisms/GlassDrawer'
 import AddSongForm from '../../organisms/AddSongDrawer/AddSongForm'
 import SongEditor from '../../organisms/SongEditor'
+import { api } from '../../../services/api'
 import styles from './SongsCatalog.module.css'
-
-const MOCK_SONGS = [
-  { id: '1', title: 'Oceans', artist: 'Hillsong United', keyNote: 'G' },
-  { id: '2', title: 'What A Beautiful Name', artist: 'Hillsong Worship', keyNote: 'D' },
-  { id: '3', title: 'Goodness of God', artist: 'Bethel Music', keyNote: 'A' },
-  { id: '4', title: 'Reckless Love', artist: 'Cory Asbury', keyNote: 'E' },
-  { id: '5', title: 'Holy Spirit', artist: 'Francesca Battistelli', keyNote: 'F' },
-  { id: '6', title: 'Waymaker', artist: 'Sinach', keyNote: 'Bb' },
-]
 
 export default function SongsCatalog() {
   const [songs, setSongs] = useState([])
@@ -21,7 +13,9 @@ export default function SongsCatalog() {
   const [editSong, setEditSong] = useState(null)
 
   useEffect(() => {
-    setSongs(MOCK_SONGS)
+    api('/api/songs').then((data) => {
+      setSongs(data.songs || [])
+    })
   }, [])
 
   function handleAddSong(data) {

@@ -1,4 +1,5 @@
-import { useReducer, useCallback, useMemo, useRef } from "react";
+import { useEffect, useReducer, useCallback, useMemo, useRef } from "react";
+import { api } from "../services/api";
 
 // ─── Estado inicial de desarrollo ─────────────────────────────────────────────
 // Cuando conectes a la API, esto vendrá de un fetch/WebSocket inicial.
@@ -237,6 +238,16 @@ export function useSetlist() {
 
   // Ref para snapshots optimistas — no necesita causar re-renders
   const snapshotRef = useRef(null);
+
+  useEffect(() => {
+    api('/api/setlists/c1000000-0000-0000-0000-000000000001').then((data) => {
+      const songs = (data.songs || []).map((song) => ({
+        ...song,
+        keyNote: song.overrideKey ?? song.defaultKey,
+      }))
+      dispatch({ type: ACTION.HYDRATE, payload: { songs } })
+    })
+  }, [])
 
   // ── Acciones locales ────────────────────────────────────────
   //

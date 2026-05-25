@@ -1,0 +1,18 @@
+{
+  "name": "setlist-app-backend",
+  "version": "1.0.0",
+  "description": "API para Setlist App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^17.4.2",
+    "express": "^4.18.0",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.6.0",
+    "uuid": "^9.0.0"
+  }
+}

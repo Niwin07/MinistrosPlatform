@@ -26,7 +26,7 @@ const registerSchema = z
 export default function Register() {
   const navigate = useNavigate();
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
-  const login = useAuthStore((s) => s.login);
+  const registerAction = useAuthStore((s) => s.register);
 
   const {
     register,
@@ -39,7 +39,7 @@ export default function Register() {
   });
 
   async function submit(data) {
-    await login({ email: data.email, password: data.password });
+    await registerAction({ name: data.name, email: data.email, password: data.password });
     navigate("/", { replace: true });
   }
 
